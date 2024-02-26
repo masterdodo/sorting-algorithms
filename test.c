@@ -2,8 +2,10 @@
 
 #include "bubble.h"
 #include "selection.h"
+#include "insertion.h"
 
-void setRandomArr(int arr[]) {
+void setRandomArr(int arr[])
+{
     arr[0] = 8;
     arr[1] = 4;
     arr[2] = 5;
@@ -16,15 +18,18 @@ void setRandomArr(int arr[]) {
     arr[9] = 6;
 }
 
-void printArr(int arr[], int n) {
+void printArr(int arr[], int n)
+{
     printf("Arr: ");
-    for (int i = 0; i < n; i++) {
+    for (int i = 0; i < n; i++)
+    {
         printf("%d, ", arr[i]);
     }
     printf("\n");
 }
 
-void array_sort(int arr[], int arr_len, void (*sort_func)(int[], int)) {
+void array_sort(int arr[], int arr_len, void (*sort_func)(int[], int))
+{
     setRandomArr(arr);
     printArr(arr, arr_len);
 
@@ -33,16 +38,24 @@ void array_sort(int arr[], int arr_len, void (*sort_func)(int[], int)) {
     printArr(arr, arr_len);
 }
 
-void bubble(int arr[], int arr_len) {
+void bubble(int arr[], int arr_len)
+{
     array_sort(arr, arr_len, sort_bubble);
 }
 
-void selection(int arr[], int arr_len) {
+void selection(int arr[], int arr_len)
+{
     array_sort(arr, arr_len, sort_selection);
 }
 
-int main(void) {
-    int arr[] = {8,4,5,7,2,4,9,3,1,6};
+void insertion(int arr[], int arr_len)
+{
+    array_sort(arr, arr_len, sort_insertion);
+}
+
+int main(void)
+{
+    int arr[] = {8, 4, 5, 7, 2, 4, 9, 3, 1, 6};
     int arr_len = 10;
 
     // Bubble Sort
@@ -51,6 +64,9 @@ int main(void) {
     // Selection Sort
     printf(" --- Selection Sort --- \n");
     selection(arr, arr_len);
+    // Insertion Sort
+    printf(" --- Insertion Sort --- \n");
+    insertion(arr, arr_len);
 
     return 0;
 }
